@@ -1,39 +1,25 @@
  let cvBtn = document.getElementById("cvBtn");
  let submit = document.getElementById("submit");
- let bar = document.getElementById("bar");
-
-
- cvBtn.addEventListener("click", function(){
-    alert("Downlode Succesfully")
- })
-
-
- 
- submit.addEventListener("click", function(){
-     
-    let email = document.getElementById("email");
-    let pass = document.getElementById("pass");
-
-    if(email.value == "" && pass.value == ""){
-        alert("Fill Detail")
-    }else{
-        alert("Logged IN")
-    }
-
- })
-
-
-
-
  let ul = document.querySelector("ul");
- bar.addEventListener("click", function(){
-     ul.classList.toggle("showData");
+let bar = document.getElementById("bar");
 
-     if(ul.className == "showData"){
-        bar.className="fa-solid fa-xmark"
-     }else{
-        bar.className="fa-solid fa-bars"
+bar.addEventListener("click", function(){
+    ul.classList.toggle("showData");
 
-     }
- })
+    if (ul.classList.contains("showData")) {
+        bar.className = "fa-solid fa-xmark";
+    } else {
+        bar.className = "fa-solid fa-bars";
+    }
+});
+
+// Add click event listeners to each navigation link
+let navLinks = document.querySelectorAll("ul li a");
+navLinks.forEach(link => {
+    link.addEventListener("click", function() {
+        ul.classList.remove("showData");
+        bar.className = "fa-solid fa-bars";
+    });
+});
+
 
